@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="login-form">
+      <form action="/testing" method="GET">
+        <fieldset>
+          <legend>User information</legend>
+          <div>
+            <label for="email">Email</label>
+            <div class="helper-text"><small>required</small></div>
+            <input
+              name="email"
+              type="email"
+              placeholder="example@email.com"
+              required
+            />
+          </div>
+
+          <div>
+            <label for="password">Password</label>
+            <div class="helper-text">
+              <small>between 3 and 6 characters</small>
+            </div>
+            <input
+              name="password"
+              type="password"
+              required
+              minlength="3"
+              maxlength="6"
+            />
+          </div>
+        </fieldset>
+
+        <div>
+          <label for="feelings">How're you feeling? (100 word max)</label><br />
+          <textarea name="feelings" maxlength="100"></textarea>
+        </div>
+
+        <fieldset>
+          <legend>Select a maintenance drone:</legend>
+
+          <div>
+            <input type="radio" id="huey" name="drone" value="huey" checked />
+            <label for="huey">Huey</label>
+          </div>
+
+          <div>
+            <input type="radio" id="dewey" name="drone" value="dewey" />
+            <label for="dewey">Dewey</label>
+          </div>
+
+          <div>
+            <input type="radio" id="louie" name="drone" value="louie" />
+            <label for="louie">Louie</label>
+          </div>
+        </fieldset>
+
+        <div>
+          <label for="category">I'm contacting about:</label>
+          <select id="category">
+            <option value="work">A job opportunity</option>
+            <option value="question">A question</option>
+            <option value="misc">Miscellaneous</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="other-text" hidden>
+          <label for="other">Explain yourself</label>
+          <textarea name="other"></textarea>
+        </div>
+
+        <div>
+          <button type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+  </body>
+  <script>
+    const dropDown = document.querySelector("#category");
+    const otherTextArea = document.querySelector(".other-text");
+
+    dropDown.addEventListener("change", (evt) => {
+      if (evt.target.value === "other") {
+        otherTextArea.hidden = false;
+      } else {
+        otherTextArea.hidden = true;
+      }
+    });
+  </script>
+</html>
